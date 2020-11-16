@@ -1,0 +1,151 @@
+---
+title: Getting Started
+path: /getting-started
+---
+
+## Getting Started
+
+You can create a new site from the starter with the following command:
+
+```sh
+gatsby new my-new-site https://github.com/Hyperobjekt/gatsby-starter-hyperobjekt
+```
+
+### Configuration
+
+The core configuration and site metadata can all be configured using [Netlify CMS](https://gatsby-starter-hyperobjekt.netlify.app/admin/). Alternatively, you can manually edit the configuration files as outlined below.
+
+#### Netlify CMS
+
+Edit the Netlify CMS configuration in `/static/admin/config.yml` and point the backend to your Github repository.
+
+```yml
+backend:
+  name: github
+  repo: YourUsername/my-new-site
+  branch: master
+```
+
+#### Core Settings
+
+The core settings can be found in `/config/core.json` and specifies the configuration for the `gatsby-theme-hyperobjekt-core` theme.
+
+**Sample:** `/config/core.json`
+
+```js
+{
+  "contentPath": "content/pages", // location of page content
+  "assetPath": "content/assets", // location of assets accessed in content (e.g. images, videos, etc)
+  "header": {
+    "displaySiteLogo": true, // true to display a logo in the header, false for no logo
+    "displaySiteTitle": false, // true to display a site title in the header, false for no site title
+    "displaySiteLogoMobile": true, // true to display site logo on mobile, false to hide logo on mobile
+    "displaySiteTitleMobile": false, // true to display site title on mobile, false to hide site title on mobile
+    "useStickyHeader": true, // true to have header stick to the top of the window on scroll
+    "useShrinkHeader": true, // true to shrink the header once the page is scrolled
+    "mobileMenuBreakpoint": 768, // breakpoint where navigation switches to desktop nav
+    "headerContentMaxWidth": 960, // max width for header content
+    "headerHeight": 80, // default height for header
+    "shrinkHeaderHeight": 56, // header height when it is shrunk
+    "shrinkOffset": -32 // how far to scroll before activating shrunk header
+  },
+  "useSocialLinks": true, // true to display social links on the site
+  "useDarkMode": true, // true to enable toggle between dark / light themes
+  "useKatex": false, // true to enable mathemtics typesetting
+  "typekitId": "uiz8duz", // optional string for typekit fonts
+  "contentMaxWidth": 768, // max width for content on content pages
+  "remarkImagesWidth": 1440, // width to scale down content images to
+  "fonts": { // configuration outlining which web fonts to load from google
+    "google": [
+      {
+        "family": "Montserrat", // font family to load
+        "variants": ["300", "400", "500"] // weight variants
+      },
+    ]
+  },
+  "responsiveFontSizes": {
+    "breakpoints": ["sm", "md", "lg"], // breakpoints where fonts should scale
+    "factor": 2 // higher the value, the less difference there is between font sizes on small screens (must be greater than 1)
+  }
+}
+
+```
+
+#### Site Metadata
+
+Site metadata can be found in `/config/metadata.json`, and specifies:
+
+- Defaults for SEO fields
+- Site Navigation
+- Social Media Accounts
+- Copyright (for footer)
+
+**Sample:** `/config/metadata.json`
+
+```js
+{
+  "title": "Hyperobjekt",
+  "description": "Speed up your GatsbyJS development workflow. Designed as a set of opinionated and advanced themes and starters using MDX and Theme-UI. Incorporates gatsby-theme-hyperobjekt-core.",
+  "keywords": ["gatsby", "theme", "react"],
+  "author": "Lane Olson",
+  "copyright": "Copyright Hyperobjekt © 2020",
+  "menuLinks": [
+    {
+      "name": "About", // label for the link
+      "link": "/about", // page to links to
+      "type": "internal", // "internal" or "anchor" for on-page navigation
+      "location": "header", // "header", "footer", or "all" to show in both
+      "subMenu": [ // links to nest below in a submenu
+        {
+          "name": "Our Team",
+          "link": "/about/our-team",
+          "type": "internal"
+        },
+        ...
+      ]
+    },
+
+    ...
+  ],
+  "socialLinks": [
+    {
+      "name": "Twitter", // type of social media
+      "link": "https://twitter.com/hyperobjekt", // link to social media account
+      "location": "header" // "header", "footer", or "all" for both
+    },
+    ...
+  ]
+}
+
+```
+
+#### Site Images (Logo, Favicons, Social Media)
+
+The images used sitewide are placed in `/content/assets`, replace these images with images you would like to use for the site. You must **keep the file names the same** as they are optimized and resized for appropriate output.
+
+- **Logo:** `/content/assets/site-logo.[svg,png,jpg]`
+- **Favicon / Home Icon:** `/content/assets/site-icon.png`
+- **Social Image:** `/content/assets/site-social.jpg`
+  - You can also specify this on a per-page basis using front matter
+
+### Adding Pages
+
+You can add pages via the [Netlify CMS](https://gatsby-starter-hyperobjekt.netlify.app/admin/), or manually by adding files to the `/content/pages` directory.
+
+Pages use [MDX](https://mdxjs.com/) which is an extended version of markdown that allows you to use React components within the file. You can import the components you want to use manually, or you can [specify the MDX components that are globally available](#todo).
+
+Each page should have some front matter to help with SEO.
+
+**Example frontmatter:** `/content/pages/getting-started.mdx`
+
+```yaml
+---
+title: Getting Started
+description: Learn how to get started using the Gatsby Hyperobjekt Core theme
+image: /uploads/social-getting-started.jpg
+keywords:
+  - gatsby
+  - hyperobjekt
+---
+## Page content
+```

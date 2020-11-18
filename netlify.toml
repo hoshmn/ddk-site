@@ -5,3 +5,13 @@
   NODE_VERSION = "12"
   YARN_VERSION = "1.22.10"
   YARN_FLAGS = "--no-ignore-optional"
+
+# Production branch.
+[context.production]
+  environment = { GATSBY_ENVIRONMENT = "production"}
+# Staging branch.  
+[context.staging]
+  environment = { GATSBY_ENVIRONMENT = "staging"}
+# Preview branches.
+[context.deploy-preview]
+  environment = { GATSBY_ENVIRONMENT = "staging"}

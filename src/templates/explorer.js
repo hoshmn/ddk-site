@@ -43,8 +43,7 @@ const ExplorerTemplate = ({ data: { mdx }, pageContext }) => {
         lang,
         isBlogPost,
       }}
-      disableFooter="true"
-      disableHeader="true"
+      explorer={true}
     >
       <Explorer lang="en" langSet={en_US} />
     </Layout>

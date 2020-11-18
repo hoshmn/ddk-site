@@ -5,7 +5,7 @@
   "author": "Lane Olson <laneolson@gmail.com>",
   "dependencies": {
     "@material-ui/core": "^4.11.0",
-    "ddk-map": "^1.0.1",
+    "ddk-map": "^1.0.2",
     "gatsby": "^2.24.58",
     "gatsby-plugin-google-gtag": "^2.2.0",
     "gatsby-plugin-netlify-cms": "^4.3.17",

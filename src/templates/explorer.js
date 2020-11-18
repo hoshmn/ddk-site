@@ -1,6 +1,7 @@
-import { MDXRenderer } from "gatsby-plugin-mdx"
+// import { MDXRenderer } from "gatsby-plugin-mdx"
 import React from "react"
-import { Layout, Hero, Block } from "gatsby-theme-hyperobjekt-core"
+import { Helmet } from "gatsby-theme-hyperobjekt-core"
+import Page from "gatsby-theme-hyperobjekt-core/src/components/layout/page"
 import { graphql } from "gatsby"
 import Explorer from "ddk-map"
 
@@ -33,19 +34,19 @@ const ExplorerTemplate = ({ data: { mdx }, pageContext }) => {
     isBlogPost,
   } = pageContext.frontmatter
   return (
-    <Layout
-      {...{
-        title,
-        description,
-        keywords,
-        image,
-        lang,
-        isBlogPost,
-      }}
-      explorer={true}
-    >
+    <Page>
+      <Helmet
+        {...{
+          title,
+          description,
+          keywords,
+          image,
+          lang,
+          isBlogPost,
+        }}
+      />
       <Explorer lang="en_US" langSet={langSet} />
-    </Layout>
+    </Page>
   )
 }
 

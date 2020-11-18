@@ -64,10 +64,7 @@ const Layout = ({
         <Header />
         <Main>
           <SkipNavContent />
-          <Content>
-            {children}
-            <h1>mother fucker!!!!</h1>
-          </Content>
+          <Content>{children}</Content>
         </Main>
         <Footer />
       </Page>

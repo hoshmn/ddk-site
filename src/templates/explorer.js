@@ -24,7 +24,6 @@ export const query = graphql`
 `
 
 const ExplorerTemplate = ({ data: { mdx }, pageContext }) => {
-  console.log("explorer, ", en_US, process.env.GATSBY_MAPBOX_API_TOKEN)
   const {
     title,
     description,

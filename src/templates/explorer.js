@@ -1,4 +1,3 @@
-// import { MDXRenderer } from "gatsby-plugin-mdx"
 import React from "react"
 import { Helmet } from "gatsby-theme-hyperobjekt-core"
 import Page from "gatsby-theme-hyperobjekt-core/src/components/layout/page"

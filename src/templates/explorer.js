@@ -45,7 +45,7 @@ const ExplorerTemplate = ({ data: { mdx }, pageContext }) => {
       }}
       explorer={true}
     >
-      <Explorer lang="en" langSet={en_US} />
+      <Explorer lang="en_US" langSet={en_US} />
     </Layout>
   )
 }

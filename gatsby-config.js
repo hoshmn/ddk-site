@@ -56,15 +56,15 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
+        path: `${__dirname}/content/assets`,
       },
     },
     `gatsby-transformer-json`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `./src/data/map/schools.json`,
-        typeName: `Schools`,
+        path: `./config/lang/explorer/`,
+        typeName: `langSet`,
       },
     },
     `gatsby-transformer-sharp`,

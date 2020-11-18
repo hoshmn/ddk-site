@@ -9,6 +9,7 @@ module.exports = {
         ...coreOptions,
         templates: {
           home: require.resolve(`./src/templates/home.js`),
+          explorer: require.resolve(`./src/templates/explorer.js`),
         },
       },
     },
@@ -25,7 +26,7 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-gtag`,
+      resolve: `gatsby-plugin-google-gtag`, // TODO: Put client GA tracking ID into .env file and Netlify config.
       options: {
         // You can add multiple tracking ids and a pageview event will be fired for all of them.
         trackingIds: [

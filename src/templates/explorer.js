@@ -4,7 +4,7 @@ import { Layout, Hero, Block } from "gatsby-theme-hyperobjekt-core"
 import { graphql } from "gatsby"
 import Explorer from "ddk-map"
 
-import en_US from "../../config/lang/explorer/en_US.json"
+import langSet from "../../config/lang/explorer/lang.json"
 
 export const query = graphql`
   query($pathSlug: String!) {
@@ -44,7 +44,7 @@ const ExplorerTemplate = ({ data: { mdx }, pageContext }) => {
       }}
       explorer={true}
     >
-      <Explorer lang="en_US" langSet={en_US} />
+      <Explorer lang="en_US" langSet={langSet} />
     </Layout>
   )
 }

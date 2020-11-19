@@ -1,11 +1,8 @@
-// import { MDXRenderer } from "gatsby-plugin-mdx"
 import React from "react"
 import { Helmet } from "gatsby-theme-hyperobjekt-core"
 import Page from "gatsby-theme-hyperobjekt-core/src/components/layout/page"
 import { graphql } from "gatsby"
 import Explorer from "ddk-map"
-
-import langSet from "../../config/lang/explorer/lang.json"
 
 export const query = graphql`
   query($pathSlug: String!) {
@@ -21,10 +18,25 @@ export const query = graphql`
       }
       body
     }
+    allFile(
+      filter: {
+        extension: { eq: "json" }
+        dir: { regex: "/explorer/g" }
+        base: { eq: "lang.json" }
+      }
+    ) {
+      edges {
+        node {
+          internal {
+            content
+          }
+        }
+      }
+    }
   }
 `
 
-const ExplorerTemplate = ({ data: { mdx }, pageContext }) => {
+const ExplorerTemplate = ({ data: { mdx, allFile }, pageContext }) => {
   const {
     title,
     description,
@@ -33,6 +45,9 @@ const ExplorerTemplate = ({ data: { mdx }, pageContext }) => {
     lang,
     isBlogPost,
   } = pageContext.frontmatter
+  // Parse contents of json file for explorer strings.
+  const json = JSON.parse(allFile.edges[0].node.internal.content)
+  // console.log("explorer, ", json)
   return (
     <Page>
       <Helmet
@@ -45,7 +60,7 @@ const ExplorerTemplate = ({ data: { mdx }, pageContext }) => {
           isBlogPost,
         }}
       />
-      <Explorer lang="en_US" langSet={langSet} />
+      <Explorer lang="en_US" langSet={json} />
     </Page>
   )
 }

@@ -17,6 +17,30 @@ media_folder: /content/assets
 public_folder: /assets
 
 collections:
+  - label: "Language Pack"
+    name: "language"
+    extension: json
+    editor:
+      preview: false
+    media_folder: "/content/assets"
+    public_folder: "/content/assets"
+    files:
+      - label: "Explorer, English"
+        name: "explorer"
+        file: "config/lang/explorer/lang.json"
+        fields:
+          - {
+              label: "Site title",
+              name: "SITE_TITLE",
+              widget: string,
+              hint: "Site title in English, displayed in explorer",
+            }
+          - {
+              label: "Map loading notification",
+              name: "MAP_LOADING_DATA",
+              widget: string,
+              hint: "Map loading notification string, displayed in explorer while map data is loading",
+            }
   - label: "Configuration"
     name: "config"
     extension: json

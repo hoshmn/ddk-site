@@ -65,7 +65,20 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `./config/lang/explorer/`,
-        typeName: `langSet`,
+        options: {
+          typeName: ({ object }) => {
+            return { ...object }
+          },
+        },
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `./config/lang/site/`,
+        options: {
+          typeName: `SiteLang`,
+        },
       },
     },
     `gatsby-transformer-sharp`,

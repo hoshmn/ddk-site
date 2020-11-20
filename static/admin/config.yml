@@ -1,6 +1,6 @@
 # backend:
 #   name: github
-#   repo: Hyperobjekt/gatsby-starter-hyperobjekt
+#   repo: Hyperobjekt/ddk-site.git
 #   branch: master
 
 # FOR LOCAL DEVELOPMENT:
@@ -11,7 +11,7 @@
 backend:
   name: proxy
   proxy_url: http://localhost:8081/api/v1
-  branch: main # optional, defaults to master
+  branch: master # optional, defaults to master
 
 media_folder: /content/assets
 public_folder: /assets
@@ -25,22 +25,50 @@ collections:
     media_folder: "/content/assets"
     public_folder: "/content/assets"
     files:
-      - label: "Explorer, English"
+      - label: Base Language Pack
+        name: base
+        file: "config/lang/site/lang.json"
+        fields:
+          - {
+              label: "English",
+              name: "en_US",
+              widget: "object",
+              fields:
+                [
+                  {
+                    label: "Site name",
+                    name: "siteName",
+                    widget: string,
+                    hint: "Site title in English",
+                  },
+                ],
+            }
+
+      - label: "Explorer Language Pack"
         name: "explorer"
         file: "config/lang/explorer/lang.json"
         fields:
           - {
-              label: "Site title",
-              name: "SITE_TITLE",
-              widget: string,
-              hint: "Site title in English, displayed in explorer",
+              label: "English",
+              name: "en_US",
+              widget: "object",
+              fields:
+                [
+                  {
+                    label: "Site title",
+                    name: "SITE_TITLE",
+                    widget: string,
+                    hint: "Site title in English, displayed in explorer",
+                  },
+                  {
+                    label: "Map loading notification",
+                    name: "MAP_LOADING_DATA",
+                    widget: string,
+                    hint: "Map loading notification string, displayed in explorer while map data is loading",
+                  },
+                ],
             }
-          - {
-              label: "Map loading notification",
-              name: "MAP_LOADING_DATA",
-              widget: string,
-              hint: "Map loading notification string, displayed in explorer while map data is loading",
-            }
+
   - label: "Configuration"
     name: "config"
     extension: json

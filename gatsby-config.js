@@ -69,6 +69,7 @@ module.exports = {
           typeName: ({ object }) => {
             return { ...object }
           },
+          name: "explorerLang",
         },
       },
     },
@@ -77,7 +78,7 @@ module.exports = {
       options: {
         path: `./config/lang/site/`,
         options: {
-          typeName: `SiteLang`,
+          name: `siteLang`,
         },
       },
     },
